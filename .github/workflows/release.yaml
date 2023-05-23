@@ -18,6 +18,9 @@ jobs:
         with:
           node-version: "18.x"
           cache: "npm"
+      - name: d1
+        id: d1
+        run: cat /home/runner/work/confluence-to-obsidian-plugin/confluence-to-obsidian-plugin/package-lock.json
       - name: Build
         id: build
         run: |
