@@ -1,5 +1,5 @@
 import { App, Editor, MarkdownView, Modal, Notice, Plugin, PluginSettingTab, Setting } from 'obsidian';
-import {Bootstrap} from 'confluence-to-markdown/src/Bootstrap';
+import { Bootstrap } from 'confluence-to-markdown/src/Bootstrap';
 
 interface CTOPluginSettings {
 	mySetting: string;
@@ -78,7 +78,11 @@ export default class CTOPlugin extends Plugin {
 		await this.saveData(this.settings);
 	}
 
-	importConfluenceSpace(){
+	importConfluenceSpace() {
+		new ImportSpaceModal(this.app, (spacePath) => {
+			console.log(spacePath);
+		}).open();
+
 		//TODO:
 		// const sourcePath = '';
 		// const Targetpath = '';
@@ -87,22 +91,42 @@ export default class CTOPlugin extends Plugin {
 	}
 }
 
-class SampleModal extends Modal {
-	constructor(app: App) {
+class ImportSpaceModal extends Modal {
+	spacePath: string;
+	onSubmit: (spacePath: string) => void;
+
+	constructor(app: App, onSubmit: (spacePath: string) => void) {
 		super(app);
+		this.onSubmit = onSubmit;
 	}
 
 	onOpen() {
-		const {contentEl} = this;
-		contentEl.setText('Woah!');
-		contentEl.createEl('input', {
-			type: 'file',
-			text: 'of'
-		});
+		const { contentEl } = this;
+		contentEl.createEl("h2", { text: "Import Confluence space" });
+		// contentEl.createEl('input', {
+		// 	type: 'file',
+		// 	text: 'of'
+		// });
+		new Setting(contentEl)
+			.setName("Space directory:")
+			.addText((text) =>
+				text.onChange((value) => {
+					this.spacePath = value
+				}));
+
+		new Setting(contentEl)
+			.addButton((btn) =>
+				btn
+					.setButtonText("Import")
+					.setCta()
+					.onClick(() => {
+						this.close();
+						this.onSubmit(this.spacePath);
+					}));
 	}
 
 	onClose() {
-		const {contentEl} = this;
+		const { contentEl } = this;
 		contentEl.empty();
 	}
 }
@@ -116,11 +140,11 @@ class SampleSettingTab extends PluginSettingTab {
 	}
 
 	display(): void {
-		const {containerEl} = this;
+		const { containerEl } = this;
 
 		containerEl.empty();
 
-		containerEl.createEl('h2', {text: 'Settings.'});
+		containerEl.createEl('h2', { text: 'Settings.' });
 
 		new Setting(containerEl)
 			.setName('Setting #1')
