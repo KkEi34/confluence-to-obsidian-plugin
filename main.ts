@@ -1,4 +1,4 @@
-import { App, Editor, MarkdownView, Modal, Notice, Plugin, PluginSettingTab, Setting } from 'obsidian';
+import { App, Editor, FileSystemAdapter, MarkdownView, Modal, Notice, Plugin, PluginSettingTab, Setting } from 'obsidian';
 import { Bootstrap } from 'confluence-to-markdown/src/Bootstrap';
 
 interface CTOPluginSettings {
@@ -81,7 +81,7 @@ export default class CTOPlugin extends Plugin {
 		new ImportSpaceModal(this.app, (spacePath) => {
 			console.log(spacePath);
 			const bootstrap = new Bootstrap();
-			const vaultPath = this.app.vault.adapter.getBasePath();
+			const vaultPath = (this.app.vault.adapter as FileSystemAdapter).getBasePath();
 			
 			bootstrap.run(spacePath, vaultPath);
 			new Notice("Import finished.");
