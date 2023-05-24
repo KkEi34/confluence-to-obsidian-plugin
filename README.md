@@ -29,4 +29,5 @@ You must have [pandoc](http://pandoc.org/installing.html) command line tool in
     - In Obsidian command palette select **Confluence to Obsidian: Import Confluence space** command
     - In **Space directory** of **Import Confluence space** dialog provide path to the confluence space folder, extracted from `zip` file and click **Import**
 
+![import-space](docs/assets/import-space.gif)
 
