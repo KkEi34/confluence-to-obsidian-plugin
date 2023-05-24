@@ -86,7 +86,7 @@ export default class CTOPlugin extends Plugin {
 		//TODO:
 		// const sourcePath = '';
 		// const Targetpath = '';
-		// const bootstrap = new Bootstrap();
+		 const bootstrap = new Bootstrap();
 		// bootstrap.run(sourcePath, Targetpath);
 	}
 }
