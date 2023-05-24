@@ -1,6 +1,6 @@
 {
 	"name": "confluence-to-obsidian",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "Import Confluence space into Obsidian (https://obsidian.md)",
 	"main": "main.js",
 	"scripts": {
