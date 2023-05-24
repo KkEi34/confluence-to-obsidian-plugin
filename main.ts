@@ -81,7 +81,7 @@ export default class CTOPlugin extends Plugin {
 		new ImportSpaceModal(this.app, (spacePath) => {
 			console.log(spacePath);
 			const bootstrap = new Bootstrap();
-			const vaultPath = app.vault.adapter.getBasePath();
+			const vaultPath = this.app.vault.adapter.getBasePath();
 			
 			bootstrap.run(spacePath, vaultPath);
 			new Notice("Import finished.");
