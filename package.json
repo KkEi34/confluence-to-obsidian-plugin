@@ -22,6 +22,6 @@
 		"typescript": "4.7.4"
 	},
 	"dependencies": {
-		"confluence-to-markdown": "github:KkEi34/confluence-to-markdown#develop"
+		"confluence-to-markdown": "github:KkEi34/confluence-to-markdown"
 	}
 }
