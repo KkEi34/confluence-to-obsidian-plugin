@@ -14,8 +14,6 @@ export default class CTOPlugin extends Plugin {
 
 	async onload() {
 		await this.loadSettings();
-
-
 		// This adds a simple command that can be triggered anywhere
 		this.addCommand({
 			id: 'import-space',
@@ -62,6 +60,7 @@ export default class CTOPlugin extends Plugin {
 		// 	}
 		// });
 
+		//TODO:
 		// This adds a settings tab so the user can configure various aspects of the plugin
 		//this.addSettingTab(new SampleSettingTab(this.app, this));
 	}
@@ -81,13 +80,12 @@ export default class CTOPlugin extends Plugin {
 	importConfluenceSpace() {
 		new ImportSpaceModal(this.app, (spacePath) => {
 			console.log(spacePath);
+			const bootstrap = new Bootstrap();
+			const vaultPath = app.vault.adapter.getBasePath();
+			
+			bootstrap.run(spacePath, vaultPath);
+			new Notice("Import finished.");
 		}).open();
-
-		//TODO:
-		// const sourcePath = '';
-		// const Targetpath = '';
-		 const bootstrap = new Bootstrap();
-		// bootstrap.run(sourcePath, Targetpath);
 	}
 }
 
@@ -131,31 +129,32 @@ class ImportSpaceModal extends Modal {
 	}
 }
 
-class SampleSettingTab extends PluginSettingTab {
-	plugin: CTOPlugin;
+//TODO:
+// class CTOSettingTab extends PluginSettingTab {
+// 	plugin: CTOPlugin;
 
-	constructor(app: App, plugin: CTOPlugin) {
-		super(app, plugin);
-		this.plugin = plugin;
-	}
+// 	constructor(app: App, plugin: CTOPlugin) {
+// 		super(app, plugin);
+// 		this.plugin = plugin;
+// 	}
 
-	display(): void {
-		const { containerEl } = this;
+// 	display(): void {
+// 		const { containerEl } = this;
 
-		containerEl.empty();
+// 		containerEl.empty();
 
-		containerEl.createEl('h2', { text: 'Settings.' });
+// 		containerEl.createEl('h2', { text: 'Settings.' });
 
-		new Setting(containerEl)
-			.setName('Setting #1')
-			.setDesc('It\'s a secret')
-			.addText(text => text
-				.setPlaceholder('Enter your secret')
-				.setValue(this.plugin.settings.mySetting)
-				.onChange(async (value) => {
-					console.log('Secret: ' + value);
-					this.plugin.settings.mySetting = value;
-					await this.plugin.saveSettings();
-				}));
-	}
-}
+// 		new Setting(containerEl)
+// 			.setName('Setting #1')
+// 			.setDesc('It\'s a secret')
+// 			.addText(text => text
+// 				.setPlaceholder('Enter your secret')
+// 				.setValue(this.plugin.settings.mySetting)
+// 				.onChange(async (value) => {
+// 					console.log('Secret: ' + value);
+// 					this.plugin.settings.mySetting = value;
+// 					await this.plugin.saveSettings();
+// 				}));
+// 	}
+// }
