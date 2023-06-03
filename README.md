@@ -24,7 +24,7 @@ You must have [pandoc](http://pandoc.org/installing.html) command line tool in
      - Select **HTML** as export format and click **Next>>**
      - In **Export HTML Options** choose Normal or Custom export and click **Export**
      - Download `zip` file
- 2. Import Space in Obsidian
+ 2. Import Space into Obsidian
     - Extract zip file
     - In Obsidian command palette select **Confluence to Obsidian: Import Confluence space** command
     - In **Space directory** of **Import Confluence space** dialog provide path to the confluence space folder, extracted from `zip` file and click **Import**
