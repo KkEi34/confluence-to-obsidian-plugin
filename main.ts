@@ -40,7 +40,6 @@ export default class CTOPlugin extends Plugin {
 
 	importConfluenceSpace() {
 		new ImportSpaceModal(this.app, (spacePath) => {
-			console.log(spacePath);
 			const bootstrap = new Bootstrap();
 			const vaultPath = (this.app.vault.adapter as FileSystemAdapter).getBasePath();
 			
