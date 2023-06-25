@@ -60,7 +60,7 @@ class ImportSpaceModal extends Modal {
 
 	onOpen() {
 		const { contentEl } = this;
-		contentEl.createEl("h2", { text: "Import Confluence space" });
+		contentEl.createEl("h2", { text: "Confluence space import" });
 		new Setting(contentEl)
 			.setName("Space directory:")
 			.addText((text) =>
