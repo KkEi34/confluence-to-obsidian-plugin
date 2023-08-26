@@ -1,7 +1,7 @@
 {
 	"id": "confluence-to-obsidian",
 	"name": "Confluence to Obsidian",
-	"version": "0.2.3",
+	"version": "0.2.4",
 	"minAppVersion": "0.15.0",
 	"description": "Import Confluence space into Obsidian vault",
 	"author": "K",
