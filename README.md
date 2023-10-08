@@ -4,7 +4,7 @@ This plugin imports [Confluence](https://www.atlassian.com/software/confluence) 
 
 > **NOTE**
 > - The plugin is currently WIP, so use it on your own risk
-> - Works only on desktop (tested on Windows 10 and Ubuntu 22)
+> - Works only on desktop (tested on Windows 10, Ubuntu 22, macOS Sonoma)
 > - Under the hood the plugin uses [confluence-to-markdown](https://github.com/KkEi34/confluence-to-markdown)
 
 # Requirements
