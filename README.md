@@ -2,13 +2,16 @@
 
 This plugin imports [Confluence](https://www.atlassian.com/software/confluence) space exported as HTML into [Obsidian](https://obsidian.md) vault.
 
-> **NOTE**
+> [!NOTE]
 > - The plugin is currently WIP, so use it on your own risk
 > - Works only on desktop (tested on Windows 10, Ubuntu 22, macOS Sonoma)
 > - Under the hood the plugin uses [confluence-to-markdown](https://github.com/KkEi34/confluence-to-markdown)
 
 # Requirements
 You must have [pandoc](http://pandoc.org/installing.html) command line tool installed.
+> [!NOTE]
+> On macOS, the plugin assumes that Pandoc is located in `/usr/local/bin`, which is its default installation path when using `brew install pandoc`.
+> You can use `which pandoc` in the terminal to check the location of pandoc.
 
 # How to use
 1. Export Confluence space as HTML
